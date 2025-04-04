@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>S. Dineshkumar - Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #6c63ff;
+      --secondary: #4d44db;
+      --accent: #ff6584;
+      --light: #f8f9fa;
+      --dark: #343a40;
+      --success: #28a745;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    body {
+      background-color: #f5f5f5;
+      color: #333;
+      line-height: 1.6;
+    }
+    
+    header {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      text-align: center;
+      padding: 3rem 1rem;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .profile-photo {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid white;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      margin-bottom: 1rem;
+      transition: transform 0.3s ease;
+    }
+    
+    .profile-photo:hover {
+      transform: scale(1.05);
+    }
+    
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    header p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    
+    section {
+      padding: 4rem 0;
+    }
+    
+    #about {
+      background-color: white;
+    }
+    
+    #skills {
+      background: linear-gradient(to right, #f9f9f9, #eef2ff);
+    }
+    
+    #projects {
+      background-color: white;
+    }
+    
+    #contact {
+      background: linear-gradient(135deg, #eef2ff, #f9f9f9);
+    }
+    
+    #resume-download {
+      background-color: var(--primary);
+      color: white;
+      text-align: center;
+      padding: 3rem;
+    }
+    
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      color: var(--secondary);
+      position: relative;
+      display: inline-block;
+    }
+    
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 50px;
+      height: 4px;
+      background-color: var(--accent);
+    }
+    
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+    
+    .project-card {
+      background: white;
+      border-radius: 10px;
+      padding: 2rem;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border-top: 4px solid var(--primary);
+    }
+    
+    .project-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+    }
+    
+    .project-card h3 {
+      color: var(--secondary);
+      margin-bottom: 1rem;
+    }
+    
+    ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    
+    ul li {
+      background-color: var(--primary);
+      color: white;
+      padding: 0.5rem 1.2rem;
+      border-radius: 50px;
+      font-weight: 500;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+    }
+    
+    form {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    input, textarea {
+      width: 100%;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border: 2px solid #ddd;
+      border-radius: 5px;
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+    }
+    
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+    }
+    
+    button {
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      padding: 1rem 2rem;
+      font-size: 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    
+    button:hover {
+      background-color: var(--secondary);
+    }
+    
+    #resume-download button {
+      background-color: white;
+      color: var(--primary);
+      font-weight: bold;
+    }
+    
+    #resume-download button:hover {
+      background-color: #f0f0f0;
+    }
+    
+    footer {
+      background-color: var(--dark);
+      color: white;
+      text-align: center;
+      padding: 2rem;
+    }
+    
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    
+    .social-icons a {
+      color: white;
+      font-size: 1.5rem;
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+    
+    .social-icons a:hover {
+      color: var(--accent);
+      transform: translateY(-3px);
+    }
+    
+    .cloud {
+      position: absolute;
+      background: white;
+      opacity: 0.2;
+      border-radius: 50%;
+      animation: float 15s infinite linear;
+    }
+    
+    @keyframes float {
+      0% { transform: translateX(0) rotate(0deg); }
+      100% { transform: translateX(500px) rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+    
+<header>
+  <div class="cloud" style="width: 100px; height: 60px; top: 20%; left: -100px;"></div>
+  <div class="cloud" style="width: 150px; height: 90px; top: 40%; left: -150px; animation-delay: 3s;"></div>
+  
+  <img src="dineshkumar.jpg" alt="S. Dineshkumar" class="profile-photo">
+  <h1>S. Dineshkumar</h1>
+  <p>BCA Student | Web Developer</p>
+</header>
+
+<!-- About Section -->
+<section id="about">
+  <div class="container">
+    <h2>About Me</h2>
+    <p>Hello! I'm S. Dineshkumar, a passionate BCA student with expertise in HTML, CSS, and web development. I enjoy creating modern and responsive websites that provide great user experiences. My goal is to combine beautiful design with clean code to build digital experiences that make an impact.</p>
+  </div>
+</section>
+
+<!-- Skills Section -->
+<section id="skills">
+  <div class="container">
+    <h2>Skills</h2>
+    <ul>
+      <li><i class="fas fa-code"></i> HTML5</li>
+      <li><i class="fab fa-css3-alt"></i> CSS3</li>
+      <li><i class="fab fa-js"></i> JavaScript</li>
+      <li><i class="fas fa-paint-brush"></i> Web Design</li>
+      <li><i class="fas fa-mobile-alt"></i> Responsive Design</li>
+      <li><i class="fab fa-bootstrap"></i> Bootstrap</li>
+    </ul>
+  </div>
+</section>
+
+<!-- Projects Section -->
+<section id="projects">
+  <div class="container">
+    <h2>Projects</h2>
+    <div class="project-grid">
+      <div class="project-card">
+        <h3>Personal Portfolio</h3>
+        <p>A responsive portfolio website showcasing my skills and projects with modern animations and clean design.</p>
+        <p class="tech-used"><strong>Technologies:</strong> HTML, CSS, JavaScript</p>
+      </div>
+      <div class="project-card">
+        <h3>College Management System</h3>
+        <p>A web application for managing student records, attendance, and college activities with admin dashboard.</p>
+        <p class="tech-used"><strong>Technologies:</strong> HTML, CSS, JavaScript, PHP</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact">
+  <div class="container">
+    <h2>Contact Me</h2>
+    <form>
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea placeholder="Your Message" rows="5" required></textarea>
+      <button type="submit"><i class="fas fa-paper-plane"></i> Send Message</button>
+    </form>
+  </div>
+</section>
+
+<!-- Resume Download Section -->
+<section id="resume-download">
+  <div class="container">
+    <h2>Download My Resume</h2>
+    <p>Click the button below to download my resume in PDF format.</p>
+    <a href="dineshkumar.pdf" download="Dineshkumar_Resume.pdf">
+      <button><i class="fas fa-download"></i> Download Resume</button>
+    </a>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="social-icons">
+      <a href="#"><i class="fab fa-github"></i></a>
+      <a href="#"><i class="fab fa-linkedin"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+    </div>
+    <p>&copy; 2023 S. Dineshkumar. All rights reserved.</p>
+  </div>
+</footer>
+</body>
+</html>
